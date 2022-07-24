@@ -47,6 +47,14 @@ public class QueryGraph<W extends Weight> {
     this.icfg = weightedBoomerang.icfg;
   }
 
+  public void addForwardSolver(ForwardQuery query, ForwardBoomerangSolver<W> solver) {
+    forwardSolvers.put(query, solver);
+  }
+
+  public void addBackwardSolver(BackwardQuery query, BackwardBoomerangSolver<W> solver) {
+    backwardSolver.put(query, solver);
+  }
+
   public void addRoot(Query root) {
     this.roots.add(root);
   }

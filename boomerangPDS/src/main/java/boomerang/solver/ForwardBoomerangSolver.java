@@ -412,9 +412,9 @@ public abstract class ForwardBoomerangSolver<W extends Weight> extends AbstractB
               return;
             }
 
-            if (!method.getLocals().contains(value) && !value.isStatic()) {
-              return;
-            }
+            //            if (!method.getLocals().contains(value) && !value.isStatic()) {
+            //              return;
+            //            }
             if (curr.getTarget().containsInvokeExpr()
                 && (curr.getTarget().isParameter(value) || value.isStatic())) {
               callFlow(
@@ -465,7 +465,7 @@ public abstract class ForwardBoomerangSolver<W extends Weight> extends AbstractB
     icfg.addCalleeListener(new CallSiteCalleeListener(caller, callSiteEdge, currNode, invokeExpr));
   }
 
-  private void byPassFlowAtCallSite(
+  protected void byPassFlowAtCallSite(
       Method caller, Node<ControlFlowGraph.Edge, Val> currNode, Statement callSite) {
     LOGGER.trace(
         "Bypassing call flow of {} at callsite: {} for {}", currNode.fact(), callSite, this);

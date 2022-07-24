@@ -36,6 +36,8 @@ public interface BoomerangOptions {
 
   IForwardFlowFunction getForwardFlowFunctions();
 
+  boolean failOnQueryCrash();
+
   enum StaticFieldStrategy {
     FLOW_SENSITIVE,
     SINGLETON,

@@ -117,7 +117,7 @@ public class DefaultBoomerangOptions implements BoomerangOptions {
 
   @Override
   public int analysisTimeoutMS() {
-    return 10000;
+    return Integer.MAX_VALUE;
   }
 
   @Override
@@ -231,6 +231,11 @@ public class DefaultBoomerangOptions implements BoomerangOptions {
   @Override
   public IForwardFlowFunction getForwardFlowFunctions() {
     return new DefaultForwardFlowFunction(this);
+  }
+
+  @Override
+  public boolean failOnQueryCrash() {
+    return false;
   }
 
   @Override

@@ -25,6 +25,7 @@ import soot.jimple.ArrayRef;
 import soot.jimple.AssignStmt;
 import soot.jimple.CastExpr;
 import soot.jimple.CaughtExceptionRef;
+import soot.jimple.DefinitionStmt;
 import soot.jimple.IdentityStmt;
 import soot.jimple.IfStmt;
 import soot.jimple.InstanceFieldRef;
@@ -162,15 +163,15 @@ public class JimpleStatement extends Statement {
   }
 
   public Val getLeftOp() {
-    assert isAssign();
-    AssignStmt assignStmt = (AssignStmt) delegate;
-    return new JimpleVal(assignStmt.getLeftOp(), method);
+    assert isAssign() || isIdentityStmt();
+    DefinitionStmt defStmt = (DefinitionStmt) delegate;
+    return new JimpleVal(defStmt.getLeftOp(), method);
   }
 
   public Val getRightOp() {
-    assert isAssign();
-    AssignStmt assignStmt = (AssignStmt) delegate;
-    return new JimpleVal(assignStmt.getRightOp(), method);
+    assert isAssign() || isIdentityStmt();
+    DefinitionStmt defStmt = (DefinitionStmt) delegate;
+    return new JimpleVal(defStmt.getRightOp(), method);
   }
 
   public boolean isInstanceOfStatement(Val fact) {
