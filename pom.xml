@@ -50,7 +50,7 @@
         <sootVersion>4.3.0-SNAPSHOT</sootVersion>
         <fmt-maven-plugin.version>2.9</fmt-maven-plugin.version>
         <maven-scm-plugin.version>1.11.2</maven-scm-plugin.version>
-        <enforced-maven-version>3.6.1</enforced-maven-version>
+        <enforced-maven-version>3.6.0</enforced-maven-version>
         <maven-enforcer-plugin.version>3.0.0-M2</maven-enforcer-plugin.version>
         <skipFormatPlugin>true</skipFormatPlugin>
     </properties>
