@@ -44,22 +44,17 @@ public interface ControlFlowGraph {
 
     @Override
     public int hashCode() {
-      return Objects.hash(getX(), getY());
+      return Objects.hash(toString());
     }
 
+    // Using string-based equality and hashcode as a workaround
     @Override
     public boolean equals(Object obj) {
       if (this == obj) return true;
       if (obj == null) return false;
       if (getClass() != obj.getClass()) return false;
       Edge other = (Edge) obj;
-      if (getX() == null) {
-        if (other.getX() != null) return false;
-      } else if (!getX().equals(other.getX())) return false;
-      if (getY() == null) {
-        if (other.getY() != null) return false;
-      } else if (!getY().equals(other.getY())) return false;
-      return true;
+      return toString().equals(other.toString());
     }
 
     @Override
