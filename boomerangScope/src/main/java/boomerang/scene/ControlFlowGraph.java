@@ -2,7 +2,6 @@ package boomerang.scene;
 
 import java.util.Collection;
 import java.util.List;
-import java.util.Objects;
 import wpds.interfaces.Location;
 
 public interface ControlFlowGraph {
@@ -40,26 +39,6 @@ public interface ControlFlowGraph {
 
     public Method getMethod() {
       return getStart().getMethod();
-    }
-
-    @Override
-    public int hashCode() {
-      return Objects.hash(getX(), getY());
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-      if (this == obj) return true;
-      if (obj == null) return false;
-      if (getClass() != obj.getClass()) return false;
-      Edge other = (Edge) obj;
-      if (getX() == null) {
-        if (other.getX() != null) return false;
-      } else if (!getX().equals(other.getX())) return false;
-      if (getY() == null) {
-        if (other.getY() != null) return false;
-      } else if (!getY().equals(other.getY())) return false;
-      return true;
     }
 
     @Override
