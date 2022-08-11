@@ -173,7 +173,7 @@ public abstract class BackwardBoomerangSolver<W extends Weight> extends Abstract
     }
   }
 
-  protected Collection<? extends State> computeCallFlow(
+  public Collection<? extends State> computeCallFlow(
       Edge callSiteEdge, Val fact, Method callee, Edge calleeStartEdge) {
     Statement calleeSp = calleeStartEdge.getTarget();
     return flowFunction.callFlow(callSiteEdge.getTarget(), fact, callee, calleeSp).stream()
